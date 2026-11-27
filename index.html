@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Print Price Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <h1>3D Print Price Calculator</h1>
+      <div class="top-controls">
+        <label class="inline">
+          <span>Currency</span>
+          <select id="currency"></select>
+        </label>
+        <button type="button" class="btn ghost" id="ratesBtn">Exchange rates</button>
+        <button type="button" class="btn ghost" id="resetBtn">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <form id="inputs" class="inputs" autocomplete="off" novalidate></form>
+
+    <aside class="result card" aria-live="polite">
+      <h2>Price breakdown</h2>
+      <dl id="breakdown" class="breakdown"></dl>
+      <div class="total-row">
+        <span id="totalLabel">Total</span>
+        <strong id="total">-</strong>
+      </div>
+      <div class="convert-row">
+        <label class="inline">
+          <span>Total in</span>
+          <select id="convertTo"></select>
+        </label>
+        <strong id="converted">-</strong>
+      </div>
+      <p id="error" class="error" hidden>Please enter valid non-negative numbers in all fields.</p>
+      <div class="actions">
+        <button type="button" class="btn" id="copyBtn">Copy quote</button>
+        <button type="button" class="btn ghost" id="saveBtn">Save as .txt</button>
+      </div>
+      <p id="toast" class="toast" hidden></p>
+    </aside>
+  </main>
+
+  <dialog id="ratesDialog">
+    <form method="dialog" class="rates-form">
+      <h2>Exchange rates</h2>
+      <p class="hint">Units of each currency per 1 USD. Defaults are approximate — update them with today's rates.</p>
+      <div id="ratesList" class="rates-list"></div>
+      <div class="actions end">
+        <button type="button" class="btn ghost" id="ratesDefault">Defaults</button>
+        <button value="cancel" class="btn ghost">Cancel</button>
+        <button type="button" class="btn" id="ratesSave">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
